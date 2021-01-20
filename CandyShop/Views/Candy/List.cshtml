@@ -1,0 +1,18 @@
+﻿@model CandyListViewModel
+@using System.Globalization;
+
+    <h1>@Model.CurrentCategory</h1>
+    @foreach (var candy in Model.Candies)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="@candy.ImageThumbnailUrl" alt="Image for candy shop.">
+                <div class="caption">
+                    <h3 class="pull-right">@string.Format(new CultureInfo("hi-IN"), "{0:c}", candy.Price)</h3>
+                    <h3>@candy.Name</h3>
+                    <p>@candy.Description</p>
+                    <h4>@candy.Category.CategoryName</h4>
+                </div>
+            </div>
+        </div>
+    }
